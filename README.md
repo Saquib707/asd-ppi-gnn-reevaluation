@@ -52,13 +52,10 @@ experiment for 5 epochs as a quick test of the code path.
   a single API call: querying the gene list in chunks drops every interaction between chunks.
 - SHA-256 checksums of both inputs are recorded in `data/network_stats.json`.
 
-Step 1 reuses the cached files in `data/` when they are present, so rerunning it rebuilds
-the same network. `--refresh` downloads everything again. SFARI Gene is updated over time,
-so a fresh export will give a somewhat different gene set.
-
-Check the terms of use of SFARI Gene and STRING before redistributing their data. If the
-SFARI export may not be redistributed, delete `data/sfari_genes_raw.csv` and let step 1
-download it.
+The exact input snapshots are included in `data/` (see `DATA.md`), so the results reproduce
+precisely. Step 1 reuses them when present; `--refresh` downloads everything again. SFARI
+Gene is updated over time, so a fresh export gives a somewhat different gene set. Please
+cite SFARI Gene and STRING and follow their terms of use.
 
 ## Reproducibility
 

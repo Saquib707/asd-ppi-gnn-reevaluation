@@ -2,8 +2,3 @@ __pycache__/
 *.pyc
 results/smoke_*
 results/run_log.txt
-
-# raw third-party database dumps (re-downloaded by 01_build_network.py)
-data/sfari_genes_raw.csv
-data/string_network_raw.tsv
-data/string_id_map.tsv
