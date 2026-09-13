@@ -20,6 +20,7 @@ robustness, mechanism and leakage, and two control tasks on which degree is not 
 | 5 | `05_figures.py` | `../latex/figures/fig_ic_degree.pdf` (Fig. 1) |
 | 6 | `06_sfari_check.py` | `results/exp_sfari.csv`, `results/sfari_diagnostics.json` |
 | 7 | `07_tables.py` | `../latex/generated/numbers.tex` and table bodies |
+| 9 | `09_tuning.py` | `results/exp_tuning.csv` (per-fold hyperparameter search) |
 | 8 | `08_check.py` | pre-submission compliance report for the compiled PDF |
 
 `gat_sparse.py` holds the edge-indexed GAT layer. It was checked against the dense
@@ -35,12 +36,13 @@ python 03_models.py
 python 04_ablation.py                  # --only / --exclude select experiments
 python 05_figures.py
 python 06_sfari_check.py
+python 09_tuning.py                    # fair per-fold tuning of every model
 python 07_tables.py
 cd ../latex && pdflatex main && bibtex main && pdflatex main && pdflatex main
 cd ../experiments && python 08_check.py
 ```
 
-`04_ablation.py` and `06_sfari_check.py` accept `--smoke`, which runs one fold per
+`04_ablation.py`, `06_sfari_check.py` and `09_tuning.py` accept `--smoke`, which runs one fold per
 experiment for 5 epochs as a quick test of the code path.
 
 ## Data provenance

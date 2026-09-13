@@ -460,6 +460,48 @@ def beyond_table():
     put("pSfRho", lambda: fp(diag["spearman_p"]), ok, "SFARI check pending")
 
 
+def tuning_macros():
+    """Step 9: every model tuned per fold on an inner validation split."""
+    df = load("exp_tuning.csv")
+    ok = df is not None
+    models = [("Degree", "Deg"), ("LogReg", "Lr"), ("RandomForest", "Rf"),
+              ("MLP", "Mlp"), ("GraphSAGE", "Sage"), ("GAT-LR", "Gat")]
+    for name, code in models:
+        for met, key, d in METRICS[:2]:
+            put(f"Tun{code}{key}",
+                lambda n=name, m=met, d=d: fmt(df[df.model == n][m].mean(), d),
+                ok, "tuning pending")
+            put(f"Tun{code}{key}Sd",
+                lambda n=name, m=met, d=d: fmt(df[df.model == n][m].std(), d),
+                ok, "tuning pending")
+    put("TunNFolds", lambda: str(df.groupby(["rep", "fold"]).ngroups), ok,
+        "tuning pending")
+    for other, code in (("MLP", "Mlp"), ("Degree", "Deg"), ("GraphSAGE", "Sage")):
+        r = paired(df, "GAT-LR", other, "pr_auc") if ok else (None, None)
+        put(f"dTunGatVs{code}Pr", lambda r=r: fmt(r[0], 3), ok, "tuning pending")
+        put(f"pTunGatVs{code}Pr", lambda r=r: fp(r[1]), ok, "tuning pending")
+    learners = [n for n, _ in models if n != "Degree"]
+    best = max(learners, key=lambda m: df[df.model == m]["pr_auc"].mean()) if ok else None
+    put("TunBest", lambda: LABEL[best], ok, "tuning pending")
+    put("TunBestPr", lambda: fmt(df[df.model == best]["pr_auc"].mean(), 3), ok,
+        "tuning pending")
+    words = "zero one two three four five six seven eight nine ten".split()
+    put("TunGatConfigs",
+        lambda: (lambda k: words[k] if k <= 10 else str(k))(
+            df[df.model == "GAT-LR"]["choice"].nunique()), ok, "tuning pending")
+    if ok:
+        # Text: tuned GAT-LR is lower than each alternative, none significantly.
+        for other in ("MLP", "Degree", "GraphSAGE"):
+            d, pv = paired(df, "GAT-LR", other, "pr_auc")
+            if not (d < 0 and pv >= 0.05):
+                claim_failures.append(
+                    f"tuning: GAT-LR vs {other} is not 'lower but not significant'")
+        gat = df[df.model == "GAT-LR"]["pr_auc"].mean()
+        for n in ("LogReg", "RandomForest", "MLP", "GraphSAGE"):
+            if gat >= df[df.model == n]["pr_auc"].mean():
+                claim_failures.append(f"tuning: GAT-LR not below {n}")
+
+
 def extra_claims():
     """Re-check the interpretive statements made in the Results text."""
     ind = load("exp_inductive.csv")
@@ -500,6 +542,7 @@ def main():
     inductive_macros()
     importance_macros()
     beyond_table()
+    tuning_macros()
     extra_claims()
     mac("ClaimCheck", todo("CLAIM CHECK FAILED: " + "; ".join(claim_failures))
         if claim_failures else "")

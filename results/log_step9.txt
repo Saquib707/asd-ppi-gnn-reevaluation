@@ -1,1 +1,37 @@
 15 folds, 7 workers
+  [ 1/15]  694.8s  elapsed  12.9 min
+  [ 2/15]  696.1s  elapsed  12.9 min
+  [ 3/15]  696.5s  elapsed  12.9 min
+  [ 4/15]  700.8s  elapsed  13.0 min
+  [ 5/15]  716.5s  elapsed  13.2 min
+  [ 6/15]  735.2s  elapsed  13.5 min
+  [ 7/15]  741.5s  elapsed  13.7 min
+  [ 8/15]  680.6s  elapsed  24.2 min
+  [ 9/15]  685.7s  elapsed  24.3 min
+  [10/15]  683.3s  elapsed  24.6 min
+  [11/15]  673.7s  elapsed  24.8 min
+  [12/15]  715.9s  elapsed  24.8 min
+  [13/15]  672.1s  elapsed  24.9 min
+  [14/15]  715.7s  elapsed  24.9 min
+  [15/15]  473.6s  elapsed  32.1 min
+
+=== tuned models (mean, std) ===
+             roc_auc          pr_auc         accuracy               f1         
+                mean     std    mean     std     mean     std     mean      std
+model                                                                          
+Degree        0.9959  0.0019  0.9871  0.0055  78.2597  2.1885  22.0808  12.2207
+GAT-LR        0.9942  0.0038  0.9745  0.0213  97.5100  0.8061  95.1687   1.5549
+GraphSAGE     0.9988  0.0018  0.9953  0.0079  98.9290  0.8676  97.9096   1.6715
+LogReg        0.9990  0.0008  0.9971  0.0025  98.1258  0.9560  96.3847   1.7882
+MLP           0.9990  0.0010  0.9969  0.0028  98.2597  0.8127  96.5054   1.6194
+RandomForest  0.9989  0.0010  0.9970  0.0027  98.2329  0.9332  96.5123   1.8338
+
+=== configurations chosen ===
+  Degree         {'none': 15}
+  GAT-LR         {'(0.01, 8, 4, 0.2, 300)': 4, '(0.01, 16, 4, 0.2, 300)': 4, '(0.01, 8, 8, 0.2, 300)': 4, '(0.005, 16, 4, 0.2, 300)': 1, '(0.05, 8, 4, 0.2, 300)': 1, '(0.01, 32, 4, 0.2, 300)': 1}
+  GraphSAGE      {'(0.01, 8, 4, 0.2, 300)': 8, '(0.05, 8, 4, 0.2, 300)': 3, '(0.01, 16, 4, 0.2, 300)': 2, '(0.005, 16, 4, 0.2, 300)': 1, '(0.01, 32, 4, 0.2, 300)': 1}
+  LogReg         {"{'C': 10.0}": 11, "{'C': 1.0}": 2, "{'C': 0.01}": 1, "{'C': 0.1}": 1}
+  MLP            {"{'hidden_layer_sizes': (64, 32), 'alpha': 0.0001}": 7, "{'hidden_layer_sizes': (16,), 'alpha': 0.0001}": 3, "{'hidden_layer_sizes': (32, 16), 'alpha': 0.01}": 2, "{'hidden_layer_sizes': (64, 32), 'alpha': 0.01}": 2, "{'hidden_layer_sizes': (32, 16), 'alpha': 0.0001}": 1}
+  RandomForest   {"{'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 1}": 9, "{'n_estimators': 400, 'max_depth': None, 'min_samples_leaf': 5}": 5, "{'n_estimators': 400, 'max_depth': 8, 'min_samples_leaf': 1}": 1}
+
+Total wall time: 32.1 min
