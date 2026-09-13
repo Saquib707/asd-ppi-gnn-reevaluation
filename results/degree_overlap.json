@@ -1,0 +1,14 @@
+{
+  "top10_jaccard_with_degree": 0.0,
+  "top25_jaccard_with_degree": 0.06382978723404255,
+  "top50_jaccard_with_degree": 0.13636363636363635,
+  "top100_jaccard_with_degree": 0.2578616352201258,
+  "spearman_rho_vs_degree": 0.7253286400726698,
+  "spearman_p": 8.553153468694195e-204,
+  "n_positives": 311,
+  "n_total": 1245,
+  "positive_rate": 0.2497991967871486,
+  "majority_baseline_acc": 75.02008032128514,
+  "si_horizon": "T2",
+  "label_percentile": 75
+}

@@ -1,0 +1,20 @@
+{
+  "sfari_genes": 1289,
+  "sfari_export_sha256": "ec3b830ab3f4e185d4d912b6e46a9bca79db39fafd107b37d8b48421be4772d2",
+  "string_version": "12.0",
+  "required_score": 400,
+  "species": 9606,
+  "string_network_sha256": "9f30fd0cc96f1c21f857f66b44ec059eaca3b184ec5913c24833fba7319938e9",
+  "raw_nodes": 1245,
+  "raw_edges": 15756,
+  "n_components": 1,
+  "final_nodes": 1245,
+  "final_edges": 15756,
+  "mean_degree": 25.31,
+  "density": 0.02035,
+  "sfari_annotated": 1245,
+  "sfari_scored": 1151,
+  "eagle_annotated": 198,
+  "sfari_genes_not_in_network": 44,
+  "built": "2026-09-12"
+}

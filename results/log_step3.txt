@@ -1,0 +1,58 @@
+Selected SI horizon: T2 (cv=1.0171)
+N=1245  positives=311 (24.98%)  majority baseline acc=75.02%
+repeat 1/5 done
+repeat 2/5 done
+repeat 3/5 done
+repeat 4/5 done
+repeat 5/5 done
+
+=== SUMMARY (mean over 5 x 5 folds) ===
+                       accuracy          precision             recall                f1          roc_auc          pr_auc        
+                           mean      std      mean      std      mean      std     mean      std    mean     std    mean     std
+model                                                                                                                           
+Centrality:BETWEENNESS  75.8715   0.6235   94.3333  13.7605    3.6651   2.3372   6.9637   4.2574  0.9110  0.0224  0.7875  0.0451
+Centrality:CLOSENESS    56.5141  10.9129   37.5721   7.3583  100.0000   0.0000  54.2535   7.1941  0.9799  0.0075  0.9478  0.0185
+Centrality:CLUSTERING   66.1847   1.5769    9.9380   3.7763    4.4977   2.0166   6.1490   2.5808  0.5296  0.0456  0.2426  0.0194
+Centrality:DEGREE       78.2169   2.1133  100.0000   0.0000   12.8070   8.3518  21.8650  11.8725  0.9960  0.0015  0.9875  0.0045
+Centrality:EIGENVECTOR  79.0843   2.1026  100.0000   0.0000   16.2806   8.3028  27.2393  11.1724  0.9933  0.0033  0.9800  0.0099
+GAT-LR                  96.1928   4.9705   90.8750   9.7302   96.6575   4.3853  93.2449   6.3903  0.9899  0.0121  0.9604  0.0414
+GCN                     82.9398   5.4969   60.8360   8.1015   96.0174   3.9278  74.2084   6.5205  0.9691  0.0243  0.9309  0.0515
+GradBoost               98.2490   0.7041   96.8338   2.3856   96.2038   2.2223  96.4843   1.4103  0.9989  0.0007  0.9967  0.0021
+GraphSAGE               98.9558   0.8440   96.7121   3.0274   99.2954   1.1379  97.9592   1.6266  0.9994  0.0012  0.9981  0.0037
+LogReg                  97.9759   0.9309   93.0658   3.1630   99.4224   0.7860  96.1105   1.7278  0.9990  0.0009  0.9970  0.0027
+MLP                     98.2972   0.6484   96.7912   2.5525   96.4639   1.8519  96.5940   1.2733  0.9989  0.0008  0.9969  0.0025
+Majority                75.0201   0.1640    0.0000   0.0000    0.0000   0.0000   0.0000   0.0000  0.5000  0.0000  0.2498  0.0016
+RWR                     78.3454   2.7261  100.0000   0.0000   13.3262  10.8001  22.1862  14.6533  0.9800  0.0045  0.9472  0.0122
+RandomForest            98.2008   1.0048   95.4915   3.0501   97.4921   2.1318  96.4496   1.9678  0.9989  0.0009  0.9968  0.0025
+
+=== DEGREE-OVERLAP TEST ===
+{
+  "top10_jaccard_with_degree": 0.0,
+  "top25_jaccard_with_degree": 0.06382978723404255,
+  "top50_jaccard_with_degree": 0.13636363636363635,
+  "top100_jaccard_with_degree": 0.2578616352201258,
+  "spearman_rho_vs_degree": 0.7253286400726698,
+  "spearman_p": 8.553153468694195e-204,
+  "n_positives": 311,
+  "n_total": 1245,
+  "positive_rate": 0.2497991967871486,
+  "majority_baseline_acc": 75.02008032128514,
+  "si_horizon": "T2",
+  "label_percentile": 75
+}
+
+=== SIGNIFICANCE (accuracy) ===
+                      comparison   metric  gat_mean  other_mean     delta  wilcoxon_stat      p_value
+              GAT-LR vs Majority accuracy 96.192771   75.020080 21.172691            1.0 1.362627e-05
+     GAT-LR vs Centrality:DEGREE accuracy 96.192771   78.216867 17.975904            1.0 1.377396e-05
+GAT-LR vs Centrality:BETWEENNESS accuracy 96.192771   75.871486 20.321285            1.0 1.350416e-05
+  GAT-LR vs Centrality:CLOSENESS accuracy 96.192771   56.514056 39.678715            0.0 5.960464e-08
+GAT-LR vs Centrality:EIGENVECTOR accuracy 96.192771   79.084337 17.108434            1.0 1.376160e-05
+ GAT-LR vs Centrality:CLUSTERING accuracy 96.192771   66.184739 30.008032            0.0 1.220145e-05
+                   GAT-LR vs RWR accuracy 96.192771   78.345382 17.847390            1.0 1.386070e-05
+                GAT-LR vs LogReg accuracy 96.192771   97.975904 -1.783133           32.5 3.866980e-03
+          GAT-LR vs RandomForest accuracy 96.192771   98.200803 -2.008032           40.5 3.000474e-03
+             GAT-LR vs GradBoost accuracy 96.192771   98.248996 -2.056225           26.5 6.867822e-04
+                   GAT-LR vs MLP accuracy 96.192771   98.297189 -2.104418            5.5 1.290531e-04
+                   GAT-LR vs GCN accuracy 96.192771   82.939759 13.253012           10.0 4.066378e-05
+             GAT-LR vs GraphSAGE accuracy 96.192771   98.955823 -2.763052            0.0 1.801905e-05

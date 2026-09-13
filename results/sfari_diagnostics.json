@@ -1,0 +1,156 @@
+{
+  "genes_in_network": 1245,
+  "sfari_scored_in_network": 1151,
+  "score1_positives": 239,
+  "positive_rate": 0.20764552562988706,
+  "spearman_degree_vs_reports": 0.41579587900641085,
+  "spearman_p": 2.4675188001823443e-49,
+  "degree_auc_global": 0.6768126513983703,
+  "reports_auc_global": 0.8133143397195919,
+  "significance_vs_degree": [
+    {
+      "comparison": "Majority vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.5,
+      "degree_mean": 0.676467627656806,
+      "delta": -0.17646762765680601,
+      "p_value": 5.960464477539063e-08
+    },
+    {
+      "comparison": "Majority vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.20764539808018068,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.20983688872707357,
+      "p_value": 5.960464477539063e-08
+    },
+    {
+      "comparison": "Eigenvector vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.6928372568697821,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.016369629212976133,
+      "p_value": 6.556510925292969e-06
+    },
+    {
+      "comparison": "Eigenvector vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.4193398424209142,
+      "degree_mean": 0.41748228680725424,
+      "delta": 0.001857555613659967,
+      "p_value": 0.7711594104766846
+    },
+    {
+      "comparison": "SFARI reports (diagnostic) vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.8125223747302575,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.13605474707345144,
+      "p_value": 5.960464477539063e-08
+    },
+    {
+      "comparison": "SFARI reports (diagnostic) vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.685413743883024,
+      "degree_mean": 0.41748228680725424,
+      "delta": 0.26793145707576976,
+      "p_value": 5.960464477539063e-08
+    },
+    {
+      "comparison": "LogReg vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.6809337002086393,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.004466072551833289,
+      "p_value": 0.055070459842681885
+    },
+    {
+      "comparison": "LogReg vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.4139924939877119,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.00348979281954237,
+      "p_value": 0.4107651710510254
+    },
+    {
+      "comparison": "RandomForest vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.6242946420852333,
+      "degree_mean": 0.676467627656806,
+      "delta": -0.05217298557157268,
+      "p_value": 5.960464477539062e-07
+    },
+    {
+      "comparison": "RandomForest vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.33626505157505604,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.0812172352321982,
+      "p_value": 5.960464477539063e-08
+    },
+    {
+      "comparison": "MLP vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.6414523547606911,
+      "degree_mean": 0.676467627656806,
+      "delta": -0.035015272896114946,
+      "p_value": 0.0003764033317565918
+    },
+    {
+      "comparison": "MLP vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.3698226403715531,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.04765964643570114,
+      "p_value": 3.1948089599609375e-05
+    },
+    {
+      "comparison": "GCN vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.720814587642718,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.04434695998591198,
+      "p_value": 5.245208740234375e-06
+    },
+    {
+      "comparison": "GCN vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.4151531342282969,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.0023291525789573275,
+      "p_value": 0.6720751523971558
+    },
+    {
+      "comparison": "GraphSAGE vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.7138568237657006,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.03738919610889457,
+      "p_value": 3.814697265625e-05
+    },
+    {
+      "comparison": "GraphSAGE vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.43333586888444786,
+      "degree_mean": 0.41748228680725424,
+      "delta": 0.015853582077193618,
+      "p_value": 0.055070459842681885
+    },
+    {
+      "comparison": "GAT-LR vs Degree",
+      "metric": "roc_auc",
+      "model_mean": 0.7000523274830042,
+      "degree_mean": 0.676467627656806,
+      "delta": 0.023584699826198152,
+      "p_value": 0.010510802268981934
+    },
+    {
+      "comparison": "GAT-LR vs Degree",
+      "metric": "pr_auc",
+      "model_mean": 0.3737953714415581,
+      "degree_mean": 0.41748228680725424,
+      "delta": -0.04368691536569613,
+      "p_value": 0.003419220447540283
+    }
+  ]
+}
