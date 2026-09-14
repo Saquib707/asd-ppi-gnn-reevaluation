@@ -59,6 +59,13 @@ def main():
         check(f"no {label} in PDF", not hits, f"{len(hits)} found" if hits else "")
     tmpl = [t for t in TEMPLATE_TEXT if t.lower() in text.lower()]
     check("no IEEE template guidance text", not tmpl, "; ".join(tmpl))
+    if "anonymous" in os.path.basename(PDF).lower():
+        leaks = [w for w in ("Mazid", "Warsi", "Sharma", "Fathima", "mazidgaba", "ORCID",
+                             "gmail", "manuu", "jnu.ac.in", "Warangal", "github.com")
+                 if w.lower() in text.lower()]
+        check("anonymous copy reveals no author identity", not leaks, "; ".join(leaks))
+    else:
+        check("named copy has real authors", "Anonymous Submission" not in text)
     numbered = [i + 1 for i, t in enumerate(pages)
                 if t.strip().splitlines() and t.strip().splitlines()[-1].strip() == str(i + 1)]
     check("no page numbers", not numbered, f"on pages {numbered}" if numbered else "")
