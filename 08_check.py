@@ -60,7 +60,7 @@ def main():
     tmpl = [t for t in TEMPLATE_TEXT if t.lower() in text.lower()]
     check("no IEEE template guidance text", not tmpl, "; ".join(tmpl))
     if "anonymous" in os.path.basename(PDF).lower():
-        leaks = [w for w in ("Warsi", "Sharma", "Fathima", "Jamaluddin", "mazidgaba",
+        leaks = [w for w in ("Warsi", "Sharma", "Fathima", "Jamaluddin", "Saquib707",
                              "gmail", "jnu.ac.in", "manuu", "Aligarh", "github.com")
                  if w.lower() in text.lower()]
         check("anonymous copy reveals no author identity", not leaks, "; ".join(leaks))
